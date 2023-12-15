@@ -1,6 +1,7 @@
 package com.apirestfull.berg.repository;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,8 +24,8 @@ public class ProdutoRepository {
 
     /**
      * Método para retornar o produto encontrado pelo seu Id.
-     * @param id do produto que será localizado
-     * @return retorna um produto caso seja encontrado com o id solicitado 
+     * @param id do produto que será localizado.
+     * @return retorna um produto caso seja encontrado com o id solicitado.
      */
     public Optional<Produto> obteProdutoPorID(int id){
         return  produtos
@@ -56,7 +57,25 @@ public class ProdutoRepository {
         produtos.removeIf(produto -> produto.getId() == id);
     }
 
-    
+    /**
+     * Método para atualizar produto na lista. 
+     * @param produto que será atualizado.
+     * @return Retorna produto aṕos atualizar a lista.
+     */
+    public Produto atualizar(Produto produto){
+
+       Optional<Produto> produtoEncontrado = obteProdutoPorID(produto.getId());
+
+       if(produtoEncontrado.isEmpty()){
+        throw new InputMismatchException("Produto não encontrado");
+       }
+
+       deletar(produto.getId());
+
+       produtos.add(produto);
+
+       return produto;
+    }
     
 }
 
