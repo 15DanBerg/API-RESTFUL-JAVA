@@ -16,22 +16,27 @@ public class ProdutoService {
     private ProdutoRepository produtoRepository;
 
     public List<Produto> obterTodos(){
+        //regra de negócio
         return produtoRepository.obterTodos();
     } 
 
     public Optional<Produto> obteProdutoPorID(int id){
+        //regra de negócio
         return produtoRepository.obteProdutoPorID(id);
     }
 
     public Produto adicionar(Produto produto){
+        //regra de negócio
         return produtoRepository.adicionar(produto);
     }
 
     public void deletar(int id){
+        //regra de negócio
         produtoRepository.deletar(id);
     }
 
     public Produto atualizar(int id, Produto produto){
+        //regra de negócio
         produtoRepository.atualizar(produto);
         produto.setId(id);
         
