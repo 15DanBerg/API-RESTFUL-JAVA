@@ -47,6 +47,16 @@ public class ProdutoRepository {
 
         return produto;
     }
+
+    /**
+     * Método para deletar produto por Id.
+     * @param id do produto a ser deletado.
+     */
+    public void deletar(int id){
+        produtos.removeIf(produto -> produto.getId() == id);
+    }
+
+    
     
 }
 
