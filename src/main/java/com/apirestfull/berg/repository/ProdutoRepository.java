@@ -31,7 +31,22 @@ public class ProdutoRepository {
             .stream()
             .filter(produto -> produto.getId() == id )
             .findFirst();
-    }   
+    }  
+
+    /**
+     * Método para adicionar um produto na lista. 
+     * @param produto que será adicionado.
+     * @return Retorna produto que foi adicionado na lista.
+     */
+    public Produto adicionar(Produto produto){
+        
+        ultimoId++;
+
+        produto.setId(ultimoId);
+        produtos.add(produto);
+
+        return produto;
+    }
     
 }
 
