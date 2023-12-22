@@ -37,7 +37,6 @@ public class ProdutoService {
 
     public Produto atualizar(int id, Produto produto){
         //regra de negócio
-        produtoRepository.atualizar(produto);
         produto.setId(id);
         
         return produtoRepository.atualizar(produto);
