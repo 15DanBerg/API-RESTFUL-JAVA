@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 import com.apirestfull.berg.model.Produto;
+import com.apirestfull.berg.model.exception.ResourceNotFoundException;
 
 @Repository
 public class ProdutoRepository {
@@ -67,7 +68,7 @@ public class ProdutoRepository {
        Optional<Produto> produtoEncontrado = obteProdutoPorID(produto.getId());
 
        if(produtoEncontrado.isEmpty()){
-        throw new InputMismatchException("Produto não encontrado");
+        throw new ResourceNotFoundException("Produto não encontrado");
        }
 
        deletar(produto.getId());
