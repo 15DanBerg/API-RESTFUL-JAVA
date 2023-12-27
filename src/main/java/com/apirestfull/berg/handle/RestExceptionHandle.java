@@ -14,7 +14,7 @@ public class RestExceptionHandle {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResorceNotFoundExcepition(ResourceNotFoundException ex){
 
-        ErrorMensage error = new ErrorMensage("Not Found", HttpStatus.NOT_FOUND.value() , ex.getMensagem());
+        ErrorMensage error = new ErrorMensage("Not Found", HttpStatus.NOT_FOUND.value() , ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
 
     } 
